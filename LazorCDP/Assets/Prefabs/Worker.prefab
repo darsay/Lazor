@@ -2716,6 +2716,7 @@ GameObject:
   - component: {fileID: 3265837853023121226}
   - component: {fileID: 8950908178971169497}
   - component: {fileID: 8950908178971169495}
+  - component: {fileID: 217963146616395883}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Untagged
@@ -2732,7 +2733,7 @@ Transform:
   m_GameObject: {fileID: 8140654630946877322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.719063, y: 0.5, z: -6.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.74101, y: 0.74101, z: 0.74101}
   m_Children:
   - {fileID: 3022684399478064357}
   - {fileID: 7438903430359335744}
@@ -2818,6 +2819,21 @@ MonoBehaviour:
   exit2: {fileID: 0}
   _animator: {fileID: 3265837853023121226}
   head: {fileID: 3114369573106311317}
+  health: 3
+--- !u!136 &217963146616395883
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140654630946877322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18308868
+  m_Height: 1.9377774
+  m_Direction: 1
+  m_Center: {x: 0.0046833656, y: 0.9273471, z: 0.022024786}
 --- !u!1 &8387080758957182037
 GameObject:
   m_ObjectHideFlags: 0

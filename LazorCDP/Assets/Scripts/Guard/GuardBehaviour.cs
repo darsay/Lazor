@@ -17,10 +17,10 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
     
     // State Machine Parameters
     #region StateMachineSetUp
-        private StateMachineEngine guardStateMachine;
+        public StateMachineEngine guardStateMachine;
     
         private State patrolling;
-        private State combat;
+        public State combat;
         private State searching;
         private State dead;
         private State scaped;
