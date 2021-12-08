@@ -198,7 +198,9 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
             _navMeshAgent.enabled = true;
             searchingTime = 0;
             timeNotSeen = 0;
-            StopCoroutine(waitingCoroutine);
+            
+            if(waitingCoroutine!= null)
+                StopCoroutine(waitingCoroutine);
         });
 
         dead = fsm.CreateState("Dead", (() => {
@@ -387,8 +389,7 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
         _animator.SetBool("isWalking", true);
     }
     
-    private ReturnValues HealSuccessCheck()
-    {
+    private ReturnValues HealSuccessCheck() {
         if (Vector3.Distance(transform.position, healingPlaces[0].position) < 1) {
             health = 5;
             cures -= 1;
@@ -531,4 +532,9 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
         return ReturnValues.Failed;
     }
     #endregion
+
+    public void CorpseSeen() {
+        worldManager.onPlayerSeen.Invoke();
+        
+    }
 }

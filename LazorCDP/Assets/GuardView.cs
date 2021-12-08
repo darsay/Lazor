@@ -9,5 +9,14 @@ public class GuardView : MonoBehaviour
         if (other.CompareTag("Player")) {
             guardBehaviour.PlayerDetection(other.transform);
         }
+        
+        if(other.CompareTag("Worker"))
+        {
+            print("F currele");
+            if (other.GetComponent<WorkerFinal>().isDead) {
+                
+                guardBehaviour.CorpseSeen();
+            }
+        }
     }
 }

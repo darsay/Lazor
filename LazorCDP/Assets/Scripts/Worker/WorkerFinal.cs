@@ -66,7 +66,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
 
     [SerializeField] private float health = 3;
 
-    private bool isDead;
+    public bool isDead;
 
     private WorldManager worldManager;
 
@@ -128,7 +128,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
         Muerto = NewFSM_FSM.CreateState("Muerto", (() => { fsmUpdate = MuertoAction; }));
 
         Escapando = NewFSM_FSM.CreateState("Escapando", (() => {
-            fsmUpdate = HuyendoAction;
+            fsmUpdate = EscapandoAction;
 
             _animator.SetBool("isWalking", false);
             _animator.SetBool("isRunning", true);
@@ -157,6 +157,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
 
         if (health <= 0) {
             Morir.Fire();
+            print("Ay");
         }
     }
 
@@ -176,6 +177,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
         _navMeshAgent.destination = exitTarget;
         if (Vector3.Distance(transform.position, exitTarget) < 1) {
             EscaparPerception.Fire();
+            Destroy(gameObject);
         }
     }
 
@@ -204,8 +206,10 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
         alarming = true;
         _animator.SetBool("isWalking", false);
         yield return new WaitForSeconds(3);
-        print("Me voy");
+        
+            
         worldManager.onPlayerSeen.Invoke();
+        print("Me voy");
         AlarmaDandoLaAlarmaPerception.Fire();
     }
 
