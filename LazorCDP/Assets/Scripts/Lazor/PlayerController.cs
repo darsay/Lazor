@@ -6,9 +6,10 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour, IDamageable<float> {
     
     // States Updates
     delegate void FsmUpdate();
@@ -91,6 +92,8 @@ public class PlayerController : MonoBehaviour {
 
     private AudioSource audioSource;
     [SerializeField] private GameObject bloodSplatter;
+    
+    WorldManager worldManager;
 
     private void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -112,6 +115,7 @@ public class PlayerController : MonoBehaviour {
         InitFSM(playerStateMachine);
 
         audioSource = GetComponent<AudioSource>();
+        worldManager = FindObjectOfType<WorldManager>();
     }
     
 
@@ -123,6 +127,10 @@ public class PlayerController : MonoBehaviour {
             HandleRotation();
         }
 
+        if (health <= 0) {
+            Die();
+        }
+        
         timeNoShoot += Time.deltaTime;
     }
 
@@ -276,6 +284,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnEsconderse() {
+        if (worldManager.GuardsChasing) return;
+        
         escondido = !escondido;
     }
     
@@ -367,5 +377,32 @@ public class PlayerController : MonoBehaviour {
             transform.DOLookAt(transform.position + _rigidbody.velocity, 0.2f, AxisConstraint.Y);
         }
         
+    }
+
+    public void TakeDamage(float damage) {
+        health--;
+        healthBar.localScale = new Vector2(health / 5, 1);
+
+        StartCoroutine(HitFeedback());
+    }
+
+    IEnumerator HitFeedback() {
+        cinemachineFreeLook.GetRig(0).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
+        cinemachineFreeLook.GetRig(1).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
+        cinemachineFreeLook.GetRig(2).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
+        cinemachineFreeLook.GetRig(0).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 2f;
+        cinemachineFreeLook.GetRig(1).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 2f;
+        cinemachineFreeLook.GetRig(2).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 2f;
+        yield return new WaitForSeconds(0.2f);
+        cinemachineFreeLook.GetRig(0).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
+        cinemachineFreeLook.GetRig(1).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
+        cinemachineFreeLook.GetRig(2).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
+        cinemachineFreeLook.GetRig(0).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0f;
+        cinemachineFreeLook.GetRig(1).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0f;
+        cinemachineFreeLook.GetRig(2).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0f;
+    }
+
+    public void Die() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

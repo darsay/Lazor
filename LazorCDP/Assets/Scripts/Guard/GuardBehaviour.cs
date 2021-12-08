@@ -96,6 +96,8 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
     private List<Transform> exitPlaces = new List<Transform>();
     private WorldManager worldManager;
 
+    [SerializeField] private GameObject shootEffect;
+
 
     private void Awake() {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -494,7 +496,13 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
             _animator.SetBool("isWalking", false);
             bulletsAvailable -= 1;
             StartCoroutine(CanShootCoroutine(shootCoolDown));
-            
+            shootEffect.SetActive(true);
+            var random = Random.Range(0, 10);
+
+           if (random > 3) {
+                player.GetComponent<PlayerController>().TakeDamage(1);
+           }
+           
         }
         
         return ReturnValues.Succeed;
