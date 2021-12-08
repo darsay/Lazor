@@ -60,6 +60,8 @@ public class WorkerFinal : MonoBehaviour {
     private List<Ray> visionRays = new List<Ray>();
     [SerializeField] private Transform head;
     private NavMeshAgent _navMeshAgent;
+
+    private EmojiChange emojiChange;
     
     //Place your variables here
 
@@ -67,6 +69,7 @@ public class WorkerFinal : MonoBehaviour {
 
     private void Awake()
     {
+        emojiChange = GetComponentInChildren<EmojiChange>();
         tiempoGanasDeOrinar = Random.Range(0.2f, 0.5f);
         tiempoSed = Random.Range(0.2f, 0.5f);
         tiempoCansacio = Random.Range(0.5f, 1.0f);
@@ -220,12 +223,14 @@ public class WorkerFinal : MonoBehaviour {
     private void IrAlBañoAction()
     {
 		_animator.SetBool("isWalking", true);
+        emojiChange.changeEmoji(4);
         Debug.Log("Ir al baño");
 		bucle = false;
         _navMeshAgent.destination = baño.position;
         if (Vector3.Distance(transform.position, baño.position) < 1 && checkpoint)
         {
 			_animator.SetBool("isWalking", false);
+            emojiChange.changeEmoji(0);
 			checkpoint = false;
             StartCoroutine(WaitToNextMovement());
             ganasDeOrinar = 0;
@@ -235,12 +240,14 @@ public class WorkerFinal : MonoBehaviour {
     private void IrALaCafeteriaAction()
     {
 		_animator.SetBool("isWalking", true);
+        emojiChange.changeEmoji(1);
         Debug.Log("Ir a la cafeteria");
 		bucle = false;
         _navMeshAgent.destination = cocina.position;
         if (Vector3.Distance(transform.position, cocina.position) < 1 && checkpoint)
         {
 			_animator.SetBool("isWalking", false);
+            emojiChange.changeEmoji(0);
 			checkpoint = false;
             StartCoroutine(WaitToNextMovement());
             sed = 0;
@@ -250,12 +257,14 @@ public class WorkerFinal : MonoBehaviour {
     private void IrADescansarAction()
     {
         Debug.Log("Ir a descansar");
+        emojiChange.changeEmoji(2);
 		_animator.SetBool("isWalking", true);
     	bucle = false;
         _navMeshAgent.destination = descanso.position;
         if (Vector3.Distance(transform.position, descanso.position) < 1 && checkpoint)
         {
 			_animator.SetBool("isWalking", false);
+            emojiChange.changeEmoji(0);
 			checkpoint = false;
             StartCoroutine(WaitToNextMovement());
             cansancio = 0;
@@ -265,12 +274,14 @@ public class WorkerFinal : MonoBehaviour {
     private void RealizarTarea1Action()
     {
 		_animator.SetBool("isWalking", true);
+        emojiChange.changeEmoji(3);
 		bucle = false;
         Debug.Log("Realizar Tarea 1");
         _navMeshAgent.destination = trabajo1.position;
         if (Vector3.Distance(transform.position, trabajo1.position) < 1 && checkpoint)
         {
 			_animator.SetBool("isWalking", false);
+            emojiChange.changeEmoji(0);
 			checkpoint = false;
             StartCoroutine(WaitToNextMovement());
             ganasTarea1 = 0;
@@ -280,12 +291,14 @@ public class WorkerFinal : MonoBehaviour {
     private void RealizarTarea2Action()
     {
 		_animator.SetBool("isWalking", true);
+        emojiChange.changeEmoji(3);
 		bucle = false;
         Debug.Log("Realizar tarea 2");
         _navMeshAgent.destination = trabajo2.position;
         if (Vector3.Distance(transform.position, trabajo2.position) < 1 && checkpoint)
         {
 			_animator.SetBool("isWalking", false);
+            emojiChange.changeEmoji(0);
 			checkpoint = false;
             StartCoroutine(WaitToNextMovement());
             ganasTarea2 = 0;
