@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private CapsuleCollider crouchCol;
 
     private AudioSource audioSource;
+    [SerializeField] private GameObject bloodSplatter;
 
     private void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -241,6 +242,9 @@ public class PlayerController : MonoBehaviour {
                 IDamageable<float> hitted = hit.collider.gameObject.GetComponent<IDamageable<float>>();
                 if (hitted != null) {
                     hitted.TakeDamage(1);
+
+                    if (hit.collider.CompareTag("SecurityCam")) return;
+                    Instantiate(bloodSplatter, hit.point, Quaternion.identity);
                 }
                    
             }
