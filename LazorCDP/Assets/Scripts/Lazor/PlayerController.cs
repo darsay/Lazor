@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour {
     
     // Player stats
 
+    [SerializeField] private float health = 5;
+    [SerializeField] private int bullets = 12;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float stealthSpeed;
@@ -73,11 +76,19 @@ public class PlayerController : MonoBehaviour {
     // Aiming
     [SerializeField] private GameObject gun;
     [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
-    [SerializeField] private GameObject aimReticle;
     [SerializeField] private GameObject shootEffect;
+    private bool isReloading;
 
+
+    // UI 
+    [SerializeField] private GameObject aimReticle;
+    [SerializeField] private Text bulletsDisplay;
+    [SerializeField] private RectTransform healthBar;
+    
     [SerializeField] private CapsuleCollider standCol;
     [SerializeField] private CapsuleCollider crouchCol;
+
+    private AudioSource audioSource;
 
     private void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -97,6 +108,8 @@ public class PlayerController : MonoBehaviour {
 
         playerStateMachine = new StateMachineEngine();
         InitFSM(playerStateMachine);
+
+        audioSource = GetComponent<AudioSource>();
     }
     
 
@@ -216,8 +229,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnShoot() {
-        if (isAiming && timeNoShoot > shootCoolDown) {
+        if (isAiming && timeNoShoot > shootCoolDown && bullets > 0 && !isReloading) {
             timeNoShoot = 0;
+            bullets--;
+            bulletsDisplay.text = bullets.ToString();
             shootEffect.SetActive(true);
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
             RaycastHit hit;
@@ -232,6 +247,22 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void OnReload() {
+        if (!isReloading && isAiming) {
+            
+            audioSource.PlayOneShot(audioSource.clip);
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    IEnumerator ReloadCoroutine() {
+        isReloading = true;
+        yield return new WaitForSeconds(1);
+        isReloading = false;
+        bullets = 12;
+        bulletsDisplay.text = bullets.ToString();
+    }
+    
     #endregion
    
 

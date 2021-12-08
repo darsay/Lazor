@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShootEffect : MonoBehaviour {
     private Light light;
     private AudioSource audioSource;
+    [SerializeField] GameObject particles;
     [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
 
     private void Awake() {
@@ -21,11 +22,13 @@ public class ShootEffect : MonoBehaviour {
 
     IEnumerator PlayEffect() {
         Noise();
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
+        particles.SetActive(false);
         Denoise();
         light.enabled = false;
         yield return new WaitForSeconds(0.45f);
         light.enabled = true;
+        particles.SetActive(true);
         gameObject.SetActive(false);
     }
 

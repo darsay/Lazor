@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "a189144c-2897-47f1-b3a7-413b556d9076",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -228,6 +236,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "45eed4f1-ffcf-4be8-81bd-b1bc559f093d",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7498b3ad-228e-46fe-990c-5760f70e4024",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
