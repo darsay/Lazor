@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float shootCoolDown;
     private float timeNoShoot;
     
+    public bool escondido;
     // Aiming
     [SerializeField] private GameObject gun;
     [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
@@ -131,6 +132,7 @@ public class PlayerController : MonoBehaviour {
     #region Input Events
 
     public void OnMove(InputValue value) {
+        if (escondido) return;
         var moveInput = value.Get<Vector2>();
         inputVector = new Vector3(moveInput.x, 0, moveInput.y);
 
@@ -159,6 +161,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnCrouch(InputValue value) {
+        if (escondido) return;
         if (isRunning) {
             isCrouched = true;
             _animator.SetBool("isRunning", false);
@@ -179,6 +182,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnRun(InputValue value) {
+        if (escondido) return;
         crouchCol.enabled = false;
         standCol.enabled = true;
         if (!isMoving) {
@@ -202,6 +206,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnAim(InputValue value) {
+
+        if (escondido) return;
         
         if (value.isPressed && !isMoving) {
             isAiming = true;
@@ -230,6 +236,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnShoot() {
+        if (escondido) return;
         if (isAiming && timeNoShoot > shootCoolDown && bullets > 0 && !isReloading) {
             timeNoShoot = 0;
             bullets--;
@@ -252,6 +259,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void OnReload() {
+        if (escondido) return;
         if (!isReloading && isAiming) {
             
             audioSource.PlayOneShot(audioSource.clip);
@@ -265,6 +273,10 @@ public class PlayerController : MonoBehaviour {
         isReloading = false;
         bullets = 12;
         bulletsDisplay.text = bullets.ToString();
+    }
+
+    public void OnEsconderse() {
+        escondido = !escondido;
     }
     
     #endregion

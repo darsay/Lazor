@@ -4,9 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Guard
   - SecurityCam
   - Worker
+=======
+  - Car
+  - Pizza
+  - Door
+  - Key
+  - Guard
+  - SecurityCam
+  - TriggerEsconderse
+>>>>>>> origin/esconderse-en-obejtos
   layers:
   - Default
   - TransparentFX

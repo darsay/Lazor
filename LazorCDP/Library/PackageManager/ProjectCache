@@ -5,16 +5,26 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637745734305852234
     m_Hash: 22877123
+=======
+      ticks: 637745786649840834
+    m_Hash: 2291333654
+>>>>>>> origin/esconderse-en-obejtos
   m_LockFileStatus:
     m_FilePath: C:/Users/Nacho/Documents/GitHub/LazorCDP/Lazor/LazorCDP/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637745734305922049
     m_Hash: 4002352029
+=======
+      ticks: 637745786649850849
+    m_Hash: 796944057
+>>>>>>> origin/esconderse-en-obejtos
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -780,7 +790,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.2.0
       source: 1
-      resolvedPath: C:\Users\Nacho\Documents\GitHub\LazorCDP\Lazor\LazorCDP\Library\PackageCache\com.unity.postprocessing@3.2.0
+      resolvedPath: C:\Users\javie\Documents\GitHub\Lazor\LazorCDP\Library\PackageCache\com.unity.postprocessing@3.2.0
       assetPath: Packages/com.unity.postprocessing
       name: com.unity.postprocessing
       displayName: Post Processing
