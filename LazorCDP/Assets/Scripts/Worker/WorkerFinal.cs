@@ -135,7 +135,12 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
             alarming = false;
         }));
 
-        Trabajando = NewFSM_FSM.CreateEntryState("Trabajando", (() => { fsmUpdate = TrabajandoAction; }));
+        Trabajando = NewFSM_FSM.CreateEntryState("Trabajando", (() => {
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isRunning", false);
+            bucle = true;
+            fsmUpdate = TrabajandoAction;
+        }));
 
 
         // Transitions
@@ -177,7 +182,6 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
         _navMeshAgent.destination = exitTarget;
         if (Vector3.Distance(transform.position, exitTarget) < 1) {
             EscaparPerception.Fire();
-            Destroy(gameObject);
         }
     }
 
@@ -220,6 +224,11 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
     private void EscapandoAction() {
         Debug.Log("Escapando");
         _animator.SetBool("isWalking", false);
+
+        if (worldManager.GuardsChasing || worldManager.guardsCount == 0) return;
+        
+        NoAlarmaPerception.Fire();
+        
     }
 
     private void TrabajandoAction() {
@@ -361,7 +370,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
         health -= damage;
         _animator.SetBool("isWalking", false);
         _animator.SetBool("isRunning", true);
-        if (NewFSM_FSM.GetCurrentState() == Huyendo) return;
+        if (NewFSM_FSM.GetCurrentState() == Huyendo || NewFSM_FSM.GetCurrentState() == DandoLaAlarma) return;
         JugadorOCadaverVistoPerception.Fire();
     }
 

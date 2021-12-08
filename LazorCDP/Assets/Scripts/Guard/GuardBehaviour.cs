@@ -343,6 +343,7 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
     public void Die() {
         _animator.SetBool("isDead", true);
         _navMeshAgent.enabled = false;
+        worldManager.guardsCount--;
         StartCoroutine(Disapear());
     }
 

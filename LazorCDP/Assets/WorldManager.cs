@@ -7,10 +7,12 @@ using UnityEngine.Events;
 public class WorldManager : MonoBehaviour {
     public UnityEvent onPlayerSeen;
     public bool GuardsChasing;
-    private GuardBehaviour[] guards;
+    public GuardBehaviour[] guards;
+    public int guardsCount;
 
     private void Awake() {
         guards = FindObjectsOfType<GuardBehaviour>();
+        guardsCount = guards.Length;
     }
 
     private void Update() {
