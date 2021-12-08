@@ -169,6 +169,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
     // Create your desired actions
 
     private void HuyendoAction() {
+        emojiChange.changeEmoji(0);
         if (alarming) return;
         var exitTarget =
             Vector3.Distance(transform.position, exit1.position) < Vector3.Distance(transform.position, exit2.position)
@@ -186,6 +187,7 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
     }
 
     private void DandoLaAlarmaAction() {
+        emojiChange.changeEmoji(0);
         if (alarming) return;
         var alarmTarget =
             Vector3.Distance(transform.position, alarma1.position) <
@@ -195,7 +197,8 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
         Debug.Log("Dando la alarma");
         bucle = false;
         checkpoint = true;
-        _animator.SetBool("isWalking", true);
+        _animator.SetBool("isRunning", true);
+        _animator.SetBool("isWalking", false);
         _navMeshAgent.destination = alarmTarget;
         if (Vector3.Distance(transform.position, alarmTarget) < 1) {
             print("ALARMANDO");
@@ -218,17 +221,20 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
     }
 
     private void MuertoAction() {
+        emojiChange.changeEmoji(0);
         Die();
     }
 
     private void EscapandoAction() {
+        emojiChange.changeEmoji(0);
         Debug.Log("Escapando");
         _animator.SetBool("isWalking", false);
 
         if (worldManager.GuardsChasing || worldManager.guardsCount == 0) return;
         
         NoAlarmaPerception.Fire();
-        
+
+        _animator.SetBool("isRunning", false);
     }
 
     private void TrabajandoAction() {
