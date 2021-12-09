@@ -387,4 +387,8 @@ public class WorkerFinal : MonoBehaviour, IDamageable<float> {
 
     }
 
+    public void Oido() {
+        JugadorOCadaverVistoPerception.Fire();
+    }
+
 }

@@ -407,4 +407,8 @@ public class CleanerFinal : MonoBehaviour, IDamageable<float> {
         _animator.SetBool("isDead", true);
 
     }
+    
+    public void Oido() {
+        JugadorOCadaverVistoPerception.Fire();
+    }
 }
