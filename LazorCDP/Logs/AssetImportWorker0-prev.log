@@ -15,11 +15,19 @@ C:/Users/Nacho/Documents/GitHub/LazorCDP/Lazor/LazorCDP
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
 52615
 Successfully changed project path to: C:/Users/Nacho/Documents/GitHub/LazorCDP/Lazor/LazorCDP
 C:/Users/Nacho/Documents/GitHub/LazorCDP/Lazor/LazorCDP
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 51.75 ms, found 2 plugins.
+=======
+51936
+Successfully changed project path to: C:/Users/javie/Documents/GitHub/Lazor/LazorCDP
+C:/Users/javie/Documents/GitHub/Lazor/LazorCDP
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 57.26 ms, found 2 plugins.
+>>>>>>> origin/limpiadores
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.20f1 (41c4e627c95f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Resources/UnitySubsystems
@@ -35,11 +43,16 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56856
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56684
+>>>>>>> origin/limpiadores
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+<<<<<<< HEAD
 Registered in 0.002040 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
@@ -50,11 +63,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1623ms)
 		BeginReloadAssembly (47ms)
+=======
+Registered in 0.002475 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 56.07 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.143 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1143ms)
+		BeginReloadAssembly (58ms)
+>>>>>>> origin/limpiadores
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< HEAD
 		EndReloadAssembly (402ms)
 			LoadAssemblies (45ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -69,12 +94,29 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (11ms)
 				ProcessInitializeOnLoadAttributes (77ms)
 				ProcessInitializeOnLoadMethodAttributes (25ms)
+=======
+		EndReloadAssembly (432ms)
+			LoadAssemblies (55ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (152ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (185ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (56ms)
+				BeforeProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadAttributes (83ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+>>>>>>> origin/limpiadores
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 Registered in 0.005470 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file data-00000216EFDBD890 doesn't match image C:\Users\Nacho\Documents\GitHub\LazorCDP\Lazor\LazorCDP\Library\ScriptAssemblies\Assembly-CSharp-firstpass.dll
@@ -136,10 +178,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1761ms)
 		BeginReloadAssembly (134ms)
+=======
+Registered in 0.005756 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 56.75 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.966 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1967ms)
+		BeginReloadAssembly (148ms)
+>>>>>>> origin/limpiadores
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 			CreateAndSetChildDomain (18ms)
 		EndReloadAssembly (1568ms)
 			LoadAssemblies (85ms)
@@ -156,12 +211,31 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (877ms)
 				ProcessInitializeOnLoadMethodAttributes (4ms)
 				AfterProcessingInitializeOnLoad (6ms)
+=======
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1750ms)
+			LoadAssemblies (95ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (300ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (1177ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (57ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (1020ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (8ms)
+>>>>>>> origin/limpiadores
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
+<<<<<<< HEAD
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
 Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -171,6 +245,17 @@ System memory in use after: 114.7 MB.
 
 Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 2915.
 Total: 3.005400 ms (FindLiveObjects: 0.229900 ms CreateObjectMapping: 0.117700 ms MarkObjects: 2.604200 ms  DeleteObjects: 0.052800 ms)
+=======
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2470 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 115.5 MB.
+System memory in use after: 115.7 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 2923.
+Total: 3.569800 ms (FindLiveObjects: 0.249500 ms CreateObjectMapping: 0.062000 ms MarkObjects: 3.184900 ms  DeleteObjects: 0.071500 ms)
+>>>>>>> origin/limpiadores
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -184,6 +269,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< HEAD
   path: Assets/Scenes/VicoScene.unity
   artifactKey: Guid(ee938ee47f99ed846948416ee0f786bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/VicoScene.unity using Guid(ee938ee47f99ed846948416ee0f786bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba3d5b6ddf4a3a0822b891195149b6b7') in 0.014780 seconds 
@@ -469,18 +555,47 @@ System memory in use after: 128.3 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2927.
 Total: 4.289100 ms (FindLiveObjects: 0.433100 ms CreateObjectMapping: 0.168300 ms MarkObjects: 3.660300 ms  DeleteObjects: 0.025700 ms)
+=======
+  path: Assets/Prefabs/uploads_files_2279996_First_Aid_Kit (1).prefab
+  artifactKey: Guid(c5a92de3f6c074d40b2ddbac241d5ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/uploads_files_2279996_First_Aid_Kit (1).prefab using Guid(c5a92de3f6c074d40b2ddbac241d5ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfcd7ad94d82dfd84fc0e3fe233be8c2') in 0.053971 seconds 
+  Import took 0.057448 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/Prefabs/BloodSprayEffect.prefab
+  artifactKey: Guid(71e528f20685b52438694cfd94179d96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BloodSprayEffect.prefab using Guid(71e528f20685b52438694cfd94179d96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d0dd98e9671ac87744bb3ee99f9cc67') in 0.070717 seconds 
+  Import took 0.074112 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/EffectExamples/SmokeTrail.mat
+  artifactKey: Guid(85320f50710fcfb4d886bc56151bea1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/EffectExamples/SmokeTrail.mat using Guid(85320f50710fcfb4d886bc56151bea1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26aa59728749530c2377382a6decf7d6') in 0.050058 seconds 
+  Import took 0.053345 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Prefabs/uploads_files_2138109_NVJOB+Low+Poly+Loudspeaker.prefab
+  artifactKey: Guid(cd3f3cb3f583d4940b52bb64a607ef7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/uploads_files_2138109_NVJOB+Low+Poly+Loudspeaker.prefab using Guid(cd3f3cb3f583d4940b52bb64a607ef7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c461610092923fe4d657d977b5860c5') in 0.013025 seconds 
+  Import took 0.016465 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Prefabs/Worker.prefab
+  artifactKey: Guid(f85cffe99df7eff44819e14f935b3676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Worker.prefab using Guid(f85cffe99df7eff44819e14f935b3676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '212a9ab4fe39a1c1eab41ab6c47d97a2') in 0.162227 seconds 
+  Import took 0.167167 seconds .
+>>>>>>> origin/limpiadores
+
+========================================================================
+<<<<<<< HEAD
 Received Import Request.
   Time since last request: 42.561920 seconds.
   path: Assets/Scripts/Lazor/PlayerController.cs
@@ -584,18 +699,89 @@ System memory in use after: 128.4 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2929.
 Total: 2.924900 ms (FindLiveObjects: 0.223900 ms CreateObjectMapping: 0.109400 ms MarkObjects: 2.575300 ms  DeleteObjects: 0.015100 ms)
+=======
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Prefabs/Lazor.prefab
+  artifactKey: Guid(ffd2059be4ad7604f9d8fc394c104fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Lazor.prefab using Guid(ffd2059be4ad7604f9d8fc394c104fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5928548145f5e5eda90c77b5e52210e') in 0.075950 seconds 
+  Import took 0.080695 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Prefabs/Guard.prefab
+  artifactKey: Guid(b8dd60ae10e0c584caeb288428d461dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Guard.prefab using Guid(b8dd60ae10e0c584caeb288428d461dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06988fc279a300ecde69b2dc81b045df') in 0.081285 seconds 
+  Import took 0.085864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Prefabs/Canvas.prefab
+  artifactKey: Guid(71b55e66456387142a02135a145ce5b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Canvas.prefab using Guid(71b55e66456387142a02135a145ce5b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca7f09f164fc353c7e03731436673006') in 0.018839 seconds 
+  Import took 0.022410 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Prefabs/uploads_files_870504_spind.prefab
+  artifactKey: Guid(2e62cf2ff5299654f8df85877a344175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/uploads_files_870504_spind.prefab using Guid(2e62cf2ff5299654f8df85877a344175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d360d676bbb6344c7bebe143b8f9ad8') in 0.013534 seconds 
+  Import took 0.016931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Prefabs/HidingPlace.prefab
+  artifactKey: Guid(3e4da6c358a0b13478459afa29ccafec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/HidingPlace.prefab using Guid(3e4da6c358a0b13478459afa29ccafec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f9cae307060bc57271b25f00c588f7c') in 0.011868 seconds 
+  Import took 0.015494 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Prefabs/Firstaid_low.prefab
+  artifactKey: Guid(4758756cffe1a1f45b0875694333462f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Firstaid_low.prefab using Guid(4758756cffe1a1f45b0875694333462f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4921dcacf6c848943eada118575c1c5b') in 0.031481 seconds 
+  Import took 0.034986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/EffectExamples/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/EffectExamples/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e43141db9eb67b52ed1fa3babe188b7') in 0.008978 seconds 
+  Import took 0.012467 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.570430 seconds.
+  path: Assets/Emojis/cafe emoticono.png
+  artifactKey: Guid(d9df52db65517d041b885021a06c412a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/cafe emoticono.png using Guid(d9df52db65517d041b885021a06c412a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9a9458a314857e28eacc83526a510fb') in 0.058868 seconds 
+  Import took 0.062631 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/Emojis/cara roja con sudor emoji.png
+  artifactKey: Guid(83af098ab963f6144ac43270e7465a19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/cara roja con sudor emoji.png using Guid(83af098ab963f6144ac43270e7465a19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bdfb044a3670e67873a2cde67bb18e5') in 0.015998 seconds 
+  Import took 0.019352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Emojis/herramientas emoji.png
+  artifactKey: Guid(4d8be392f0e97bf499ee702093b82607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/herramientas emoji.png using Guid(4d8be392f0e97bf499ee702093b82607) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '164480671e48789f418f60c4836a011b') in 0.015701 seconds 
+  Import took 0.019644 seconds .
+>>>>>>> origin/limpiadores
+
+========================================================================
+<<<<<<< HEAD
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.003878 seconds.
@@ -717,10 +903,35 @@ Received Import Request.
   artifactKey: Guid(3e4da6c358a0b13478459afa29ccafec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/HidingPlace.prefab using Guid(3e4da6c358a0b13478459afa29ccafec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '860714e602ea7fd3230d6e0a8790c8ff') in 0.013227 seconds 
   Import took 0.017273 seconds .
+=======
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Emojis/inodoro emoji.png
+  artifactKey: Guid(104bbb0beefbdbe4bb472fcd9866c34c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/inodoro emoji.png using Guid(104bbb0beefbdbe4bb472fcd9866c34c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c04a3eec09ec921e9a90ee25106477c9') in 0.014096 seconds 
+  Import took 0.017449 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.585860 seconds.
+  path: Assets/Emojis/escoba emoji.png
+  artifactKey: Guid(5f9ff467280de9949a7ac8ef37126929) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/escoba emoji.png using Guid(5f9ff467280de9949a7ac8ef37126929) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '946bbcd62e359842f0075456d915c83a') in 0.010256 seconds 
+  Import took 0.013858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.488989 seconds.
+  path: Assets/Emojis/escoba emoji.png
+  artifactKey: Guid(5f9ff467280de9949a7ac8ef37126929) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/escoba emoji.png using Guid(5f9ff467280de9949a7ac8ef37126929) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed561c35dd1d91d65826c3b504362822') in 0.012921 seconds 
+  Import took 0.016707 seconds .
+>>>>>>> origin/limpiadores
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 Registered in 0.004239 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file data-00000216F6FB6EB0 doesn't match image C:\Users\Nacho\Documents\GitHub\LazorCDP\Lazor\LazorCDP\Library\ScriptAssemblies\Assembly-CSharp-firstpass.dll
@@ -782,11 +993,24 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1094ms)
 		BeginReloadAssembly (107ms)
+=======
+Registered in 0.005701 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.246 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1246ms)
+		BeginReloadAssembly (126ms)
+>>>>>>> origin/limpiadores
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (39ms)
+<<<<<<< HEAD
 		EndReloadAssembly (933ms)
 			LoadAssemblies (80ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -794,10 +1018,20 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (39ms)
 			SetupLoadedEditorAssemblies (409ms)
+=======
+		EndReloadAssembly (1049ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (298ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (500ms)
+>>>>>>> origin/limpiadores
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
+<<<<<<< HEAD
 				BeforeProcessingInitializeOnLoad (81ms)
 				ProcessInitializeOnLoadAttributes (312ms)
 				ProcessInitializeOnLoadMethodAttributes (3ms)
@@ -814,6 +1048,24 @@ System memory in use after: 128.3 MB.
 
 Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2935.
 Total: 4.102100 ms (FindLiveObjects: 0.387400 ms CreateObjectMapping: 0.172400 ms MarkObjects: 3.512300 ms  DeleteObjects: 0.028700 ms)
+=======
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (396ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2432 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 129.4 MB.
+System memory in use after: 129.6 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2972.
+Total: 3.500500 ms (FindLiveObjects: 0.262700 ms CreateObjectMapping: 0.062100 ms MarkObjects: 3.145600 ms  DeleteObjects: 0.028800 ms)
+>>>>>>> origin/limpiadores
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -826,6 +1078,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< HEAD
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.004291 seconds.
@@ -1028,18 +1281,25 @@ System memory in use after: 128.4 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2939.
 Total: 3.407000 ms (FindLiveObjects: 0.276300 ms CreateObjectMapping: 0.135100 ms MarkObjects: 2.963700 ms  DeleteObjects: 0.030700 ms)
+=======
+Received Import Request.
+  Time since last request: 1573.627010 seconds.
+  path: Assets/Emojis
+  artifactKey: Guid(69993bcc5110a5943903ac5f1619c56a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis using Guid(69993bcc5110a5943903ac5f1619c56a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a958369c564cc2f3d79d72f6e85002b') in 0.010582 seconds 
+  Import took 0.014457 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 9.893568 seconds.
+  path: Assets/Emojis/Mancha.png
+  artifactKey: Guid(295a0ddfe7e20f64ebd6a6dccf41e5dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Emojis/Mancha.png using Guid(295a0ddfe7e20f64ebd6a6dccf41e5dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be20877725872fda948e1d25e8bf5f84') in 0.035398 seconds 
+  Import took 0.039065 seconds .
+>>>>>>> origin/limpiadores
+
+========================================================================
+<<<<<<< HEAD
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.005112 seconds.
@@ -3604,18 +3864,17 @@ System memory in use after: 128.6 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2988.
 Total: 3.005800 ms (FindLiveObjects: 0.234600 ms CreateObjectMapping: 0.110700 ms MarkObjects: 2.640600 ms  DeleteObjects: 0.019000 ms)
+=======
+Received Import Request.
+  Time since last request: 34.494899 seconds.
+  path: Assets/Scenes/VicoScene
+  artifactKey: Guid(bc9ddb866fd329e45ab00580749b129a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/VicoScene using Guid(bc9ddb866fd329e45ab00580749b129a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ad36a1716d94e8bd112133457d96782') in 0.007668 seconds 
+  Import took 0.011365 seconds .
+>>>>>>> origin/limpiadores
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< HEAD
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.003880 seconds.
@@ -3711,18 +3970,17 @@ System memory in use after: 128.6 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2990.
 Total: 3.145300 ms (FindLiveObjects: 0.268300 ms CreateObjectMapping: 0.131000 ms MarkObjects: 2.729600 ms  DeleteObjects: 0.015300 ms)
+=======
+Received Import Request.
+  Time since last request: 0.075223 seconds.
+  path: Assets/Scenes/VicoScene/NavMesh.asset
+  artifactKey: Guid(e4363951449218b4caae9d0828b0378c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/VicoScene/NavMesh.asset using Guid(e4363951449218b4caae9d0828b0378c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f1a9d6ee4225a6fa1027f42e44a4fc') in 0.007445 seconds 
+  Import took 0.011356 seconds .
+>>>>>>> origin/limpiadores
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< HEAD
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.004017 seconds.
@@ -3818,15 +4076,13 @@ System memory in use after: 128.6 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2992.
 Total: 3.481300 ms (FindLiveObjects: 0.223000 ms CreateObjectMapping: 0.098700 ms MarkObjects: 3.110400 ms  DeleteObjects: 0.047500 ms)
+=======
+Received Import Request.
+  Time since last request: 3.427563 seconds.
+  path: Assets/Scenes/VicoScene.unity
+  artifactKey: Guid(ee938ee47f99ed846948416ee0f786bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/VicoScene.unity using Guid(ee938ee47f99ed846948416ee0f786bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c23c13c7bcc34868a28867009a6b15') in 0.008266 seconds 
+  Import took 0.011919 seconds .
+>>>>>>> origin/limpiadores
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -23,6 +23,7 @@ public class CleanerFinal : MonoBehaviour {
     private PushPerception MorirTrabajandoPerception;
     private PushPerception MorirHuyendoPerception;
     private PushPerception MorirDandoLaAlarmaPerception;
+    private PushPerception Morir;
     private PushPerception JugadorOCadaverVistoPerception;
     private State Huyendo;
     private State DandoLaAlarma;
@@ -72,6 +73,11 @@ public class CleanerFinal : MonoBehaviour {
     [SerializeField] private Transform head;
     private NavMeshAgent _navMeshAgent;
     private EmojiChange emojiChange;
+    [SerializeField] private float health = 3;
+
+    public bool isDead;
+
+    private WorldManager worldManager;
     
     //Place your variables here
 
@@ -84,6 +90,15 @@ public class CleanerFinal : MonoBehaviour {
         tiempoSed = Random.Range(0.2f, 0.5f);
         tiempoCansacio = Random.Range(0.5f, 1.0f);
         tiempoLimpieza = Random.Range(1.0f, 2.0f);
+        worldManager = FindObjectOfType<WorldManager>();
+    }
+
+    private void OnEnable() {
+        worldManager.onPlayerSeen.AddListener((() => AlarmaTrabajandoPerception.Fire()));
+    }
+
+    private void OnDisable() {
+        worldManager.onPlayerSeen.RemoveListener((() => AlarmaTrabajandoPerception.Fire()));
     }
 
     // Start is called before the first frame update
@@ -107,13 +122,15 @@ public class CleanerFinal : MonoBehaviour {
         AlarmaDandoLaAlarmaPerception = NewFSM_FSM.CreatePerception<PushPerception>();
         EscaparPerception = NewFSM_FSM.CreatePerception<PushPerception>();
         NoAlarmaPerception = NewFSM_FSM.CreatePerception<PushPerception>();
-        MorirTrabajandoPerception = NewFSM_FSM.CreatePerception<PushPerception>();
-        MorirHuyendoPerception = NewFSM_FSM.CreatePerception<PushPerception>();
-        MorirDandoLaAlarmaPerception = NewFSM_FSM.CreatePerception<PushPerception>();
+        Morir = NewFSM_FSM.CreatePerception<PushPerception>();
         JugadorOCadaverVistoPerception = NewFSM_FSM.CreatePerception<PushPerception>();
         // States
         Huyendo = NewFSM_FSM.CreateState("Huyendo", (() => {
             fsmUpdate = HuyendoAction;
+
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isRunning", true);
+
             alarming = false;
         }));
 
@@ -127,10 +144,16 @@ public class CleanerFinal : MonoBehaviour {
 
         Escapando = NewFSM_FSM.CreateState("Escapando", (() => {
             fsmUpdate = HuyendoAction;
+
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isRunning", true);
             alarming = false;
         }));
 
         Trabajando = NewFSM_FSM.CreateEntryState("Trabajando", (() => {
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isRunning", false);
+            bucle = true;
             fsmUpdate = TrabajandoAction;
         }));
         
@@ -139,68 +162,97 @@ public class CleanerFinal : MonoBehaviour {
         NewFSM_FSM.CreateTransition("AlarmaDandoLaAlarma", DandoLaAlarma, AlarmaDandoLaAlarmaPerception, Huyendo);
         NewFSM_FSM.CreateTransition("Escapar", Huyendo, EscaparPerception, Escapando);
         NewFSM_FSM.CreateTransition("NoAlarma", Escapando, NoAlarmaPerception, Trabajando);
-        NewFSM_FSM.CreateTransition("MorirHuyendo", Huyendo, MorirHuyendoPerception, Muerto);
-        NewFSM_FSM.CreateTransition("MorirDandoLaAlarma", DandoLaAlarma, MorirDandoLaAlarmaPerception, Muerto);
+        NewFSM_FSM.CreateTransition("MorirHuyendo", Huyendo, Morir, Muerto);
+        NewFSM_FSM.CreateTransition("MorirDandoLaAlarma", DandoLaAlarma, Morir, Muerto);
 		NewFSM_FSM.CreateTransition("AlarmaTrabajando", Trabajando, AlarmaTrabajandoPerception, Huyendo);
 		NewFSM_FSM.CreateTransition("JugadorOCadaverVisto", Trabajando, JugadorOCadaverVistoPerception, DandoLaAlarma);
-		NewFSM_FSM.CreateTransition("MorirTrabajando", Trabajando, MorirTrabajandoPerception, Muerto);
+		NewFSM_FSM.CreateTransition("MorirTrabajando", Trabajando, Morir, Muerto);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        fsmUpdate();  
-        Debug.Log("Update");
+        if (isDead)return;
+        fsmUpdate();
+
+        if (health <= 0) {
+            Morir.Fire();
+            print("Ay");
+        }
     }
 
     // Create your desired actions
     
     private void HuyendoAction()
     {
-        if(alarming) return;
-        var exitTarget = Vector3.Distance(transform.position, exit1.position) < Vector3.Distance(transform.position, exit2.position) ? exit1.position : exit2.position;
+        emojiChange.changeEmoji(0);
+        if (alarming) return;
+        var exitTarget =
+            Vector3.Distance(transform.position, exit1.position) < Vector3.Distance(transform.position, exit2.position)
+                ? exit1.position
+                : exit2.position;
         Debug.Log("Huyendo");
-		bucle = false;
-		checkpoint = true;
-		_animator.SetBool("isWalking", true);
+        bucle = false;
+        checkpoint = true;
+        _animator.SetBool("isWalking", false);
+        _animator.SetBool("isRunning", true);
         _navMeshAgent.destination = exitTarget;
-        if (Vector3.Distance(transform.position, exitTarget) < 1){
+        if (Vector3.Distance(transform.position, exitTarget) < 1) {
             EscaparPerception.Fire();
         }
     }
     
     private void DandoLaAlarmaAction()
     {
-        if(alarming) return;
-        var alarmTarget = Vector3.Distance(transform.position, alarma1.position) < Vector3.Distance(transform.position, alarma2.position) ? alarma1.position : alarma2.position;
+        emojiChange.changeEmoji(0);
+        if (alarming) return;
+        var alarmTarget =
+            Vector3.Distance(transform.position, alarma1.position) <
+            Vector3.Distance(transform.position, alarma2.position)
+                ? alarma1.position
+                : alarma2.position;
         Debug.Log("Dando la alarma");
-		bucle = false;
-		checkpoint = true;
-		_animator.SetBool("isWalking", true);
+        bucle = false;
+        checkpoint = true;
+        _animator.SetBool("isRunning", true);
+        _animator.SetBool("isWalking", false);
         _navMeshAgent.destination = alarmTarget;
-        if (Vector3.Distance(transform.position, alarmTarget) < 1){
+        if (Vector3.Distance(transform.position, alarmTarget) < 1) {
             print("ALARMANDO");
             StartCoroutine(WaitToAlarm());
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isRunning", false);
         }
     }
 
 	IEnumerator WaitToAlarm() {
         alarming = true;
-		_animator.SetBool("isWalking", false);
+        _animator.SetBool("isWalking", false);
         yield return new WaitForSeconds(3);
+        
+            
+        worldManager.onPlayerSeen.Invoke();
         print("Me voy");
-		AlarmaDandoLaAlarmaPerception.Fire();  
+        AlarmaDandoLaAlarmaPerception.Fire();
     }
     
     private void MuertoAction()
     {
-        Debug.Log("Muerto");
+        emojiChange.changeEmoji(0);
+        Die();
     }
     
     private void EscapandoAction()
     {
+        emojiChange.changeEmoji(0);
         Debug.Log("Escapando");
-		_animator.SetBool("isWalking", false);
+        _animator.SetBool("isWalking", false);
+
+        if (worldManager.GuardsChasing || worldManager.guardsCount == 0) return;
+        
+        NoAlarmaPerception.Fire();
+
+        _animator.SetBool("isRunning", false);
     }
     private void TrabajandoAction()
     {
@@ -211,7 +263,6 @@ public class CleanerFinal : MonoBehaviour {
             sed += tiempoSed * Time.deltaTime;
             ganasDeOrinar += tiempoGanasDeOrinar * Time.deltaTime;
             ganasLimpieza += tiempoLimpieza * Time.deltaTime;
-            
             cansancio += tiempoCansacio * Time.deltaTime;
         }
         if (sed > 10 && checkpoint)
@@ -285,6 +336,7 @@ public class CleanerFinal : MonoBehaviour {
         {
             cleanCheck=false;
             auxBasura=Random.Range(0,limpieza.Count-1);
+            limpieza[auxBasura].gameObject.GetComponent<BasuraChange>().changeBasura(1);
         }
         
         _navMeshAgent.destination =limpieza[auxBasura].position;
@@ -305,6 +357,7 @@ public class CleanerFinal : MonoBehaviour {
     IEnumerator WaitToNextMovement() {
         var waitTime = Random.Range(3, 9);
         yield return new WaitForSeconds(waitTime);
+        limpieza[auxBasura].gameObject.GetComponent<BasuraChange>().changeBasura(0);
         bucle = true;
         cleanCheck = true; 
 		checkpoint = true;
@@ -322,6 +375,7 @@ public class CleanerFinal : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, 5)) {
                 if (hit.collider.CompareTag("Player")) {
                     JugadorOCadaverVistoPerception.Fire();
+                    _animator.SetBool("isRunning", true);
                 }
             }
         }
@@ -337,5 +391,20 @@ public class CleanerFinal : MonoBehaviour {
         Gizmos.DrawRay(head.position, direction);
         direction = transform.TransformDirection(Vector3.forward + Vector3.right * 0.5f)*5;
         Gizmos.DrawRay(head.position, direction);
+    }
+
+    public void TakeDamage(float damage) {
+        health -= damage;
+        _animator.SetBool("isWalking", false);
+        _animator.SetBool("isRunning", true);
+        if (NewFSM_FSM.GetCurrentState() == Huyendo || NewFSM_FSM.GetCurrentState() == DandoLaAlarma) return;
+        JugadorOCadaverVistoPerception.Fire();
+    }
+
+    public void Die() {
+        isDead = true;
+        _navMeshAgent.enabled = false;
+        _animator.SetBool("isDead", true);
+
     }
 }
