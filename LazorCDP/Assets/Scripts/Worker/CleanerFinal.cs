@@ -179,6 +179,13 @@ public class CleanerFinal : MonoBehaviour, IDamageable<float> {
             Morir.Fire();
             print("Ay");
         }
+
+        if (_animator.GetBool("isRunning")) {
+            _navMeshAgent.speed = 5;
+        }
+        else {
+            _navMeshAgent.speed = 3;
+        }
     }
 
     // Create your desired actions
