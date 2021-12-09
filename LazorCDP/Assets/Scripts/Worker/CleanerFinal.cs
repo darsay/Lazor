@@ -336,6 +336,7 @@ public class CleanerFinal : MonoBehaviour {
         {
             cleanCheck=false;
             auxBasura=Random.Range(0,limpieza.Count-1);
+            limpieza[auxBasura].gameObject.GetComponent<BasuraChange>().changeBasura(1);
         }
         
         _navMeshAgent.destination =limpieza[auxBasura].position;
@@ -356,6 +357,7 @@ public class CleanerFinal : MonoBehaviour {
     IEnumerator WaitToNextMovement() {
         var waitTime = Random.Range(3, 9);
         yield return new WaitForSeconds(waitTime);
+        limpieza[auxBasura].gameObject.GetComponent<BasuraChange>().changeBasura(0);
         bucle = true;
         cleanCheck = true; 
 		checkpoint = true;
