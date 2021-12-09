@@ -8,6 +8,10 @@ TagManager:
   - TriggerEsconderse
   - SecurityCam
   - Worker
+  - Car
+  - Door
+  - Key
+  - Pizza
   layers:
   - Default
   - TransparentFX
@@ -16,9 +20,9 @@ TagManager:
   - Water
   - UI
   - PostProcessing
-  - 
-  - 
-  - 
+  - Invisible
+  - Player
+  - Npc
   - 
   - 
   - 

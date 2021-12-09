@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class CleanerFinal : MonoBehaviour {
+public class CleanerFinal : MonoBehaviour, IDamageable<float> {
 
     #region variables
 

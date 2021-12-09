@@ -262,7 +262,7 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
                 timeNotSeen = 0;
             }
 
-            if (timeNotSeen > 7) {
+            if (timeNotSeen > 10) {
                 searchPerception.Fire();
             }
         }
@@ -387,13 +387,16 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
     }
     
     private void HealAction() {
-        _navMeshAgent.enabled = true;
-        _navMeshAgent.destination = healingPlaces[0].position;
-        _animator.SetBool("isWalking", true);
+        
     }
     
     private ReturnValues HealSuccessCheck() {
-        if (Vector3.Distance(transform.position, healingPlaces[0].position) < 1) {
+        var target = Vector3.Distance(healingPlaces[0].position, transform.position) < Vector3.Distance(healingPlaces[1].position, transform.position)?
+            healingPlaces[0].position : healingPlaces[1].position;
+        _navMeshAgent.enabled = true;
+        _navMeshAgent.SetDestination(target);
+        _animator.SetBool("isWalking", true);
+        if (Vector3.Distance(transform.position, target) < 1) {
             health = 5;
             cures -= 1;
             injured = false;
@@ -409,8 +412,10 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
         print("Mescapo");
         if (needToScape) {
             if (health <= 0) return;
+            var target = Vector3.Distance(exitPlaces[0].position, transform.position) < Vector3.Distance(exitPlaces[1].position, transform.position)?
+            exitPlaces[0].position : exitPlaces[1].position;
             _navMeshAgent.enabled = true;
-            _navMeshAgent.SetDestination(exitPlaces[0].position);
+            _navMeshAgent.SetDestination(target);
         }
         
         

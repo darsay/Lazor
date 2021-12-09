@@ -9,10 +9,13 @@ public class WorldManager : MonoBehaviour {
     public bool GuardsChasing;
     public GuardBehaviour[] guards;
     public int guardsCount;
+    private AudioSource audioSource;
 
     private void Awake() {
         guards = FindObjectsOfType<GuardBehaviour>();
         guardsCount = guards.Length;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = false;
     }
 
     private void Update() {
@@ -23,6 +26,14 @@ public class WorldManager : MonoBehaviour {
                 break;
             }
         }
+
+        if (GuardsChasing) {
+            audioSource.enabled = true;
+        }
+        else {
+            audioSource.enabled = false;
+        }
+        
     }
 }
 
