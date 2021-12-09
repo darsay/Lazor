@@ -2037,7 +2037,7 @@ Transform:
   m_GameObject: {fileID: 8444640508023594201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.05, y: 0, z: -6.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.67764, y: 0.67764, z: 0.67764}
   m_Children:
   - {fileID: 206755584241735816}
   - {fileID: 740276439557113963}
@@ -2099,7 +2099,7 @@ MonoBehaviour:
   exit1: {fileID: 0}
   exit2: {fileID: 0}
   _animator: {fileID: 2925826507522923545}
-  head: {fileID: 2103147267365431851}
+  head: {fileID: 3456345882719336862}
   health: 3
   isDead: 0
 --- !u!195 &8786533994653655541
@@ -2115,7 +2115,7 @@ NavMeshAgent:
   m_Speed: 3
   m_Acceleration: 1.6
   avoidancePriority: 50
-  m_AngularSpeed: 148.75
+  m_AngularSpeed: 254.9
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -2134,10 +2134,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.42553127
-  m_Height: 3.7161388
+  m_Radius: 0.3006092
+  m_Height: 1.8639749
   m_Direction: 1
-  m_Center: {x: 0.052687, y: 1.7724336, z: 0}
+  m_Center: {x: 0.0010020307, y: 0.8463518, z: 0}
 --- !u!1 &8493282905658126962
 GameObject:
   m_ObjectHideFlags: 0

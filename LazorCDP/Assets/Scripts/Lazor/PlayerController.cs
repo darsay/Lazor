@@ -118,6 +118,8 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
         InitFSM(playerStateMachine);
 
         worldManager = FindObjectOfType<WorldManager>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
     
 

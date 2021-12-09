@@ -396,7 +396,7 @@ public class GuardBehaviour : MonoBehaviour, IDamageable<float>
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(target);
         _animator.SetBool("isWalking", true);
-        if (Vector3.Distance(transform.position, target) < 1) {
+        if (Vector3.Distance(transform.position, target) < 2) {
             health = 5;
             cures -= 1;
             injured = false;
