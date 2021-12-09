@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
     private float timeNoShoot;
     
     public bool escondido;
+
+    [SerializeField] private GameObject noise;
     // Aiming
     [SerializeField] private GameObject gun;
     [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
@@ -90,7 +92,8 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
     [SerializeField] private CapsuleCollider standCol;
     [SerializeField] private CapsuleCollider crouchCol;
 
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSourceReload;
+    [SerializeField] private AudioSource audioSourceScream;
     [SerializeField] private GameObject bloodSplatter;
     
     WorldManager worldManager;
@@ -114,7 +117,6 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
         playerStateMachine = new StateMachineEngine();
         InitFSM(playerStateMachine);
 
-        audioSource = GetComponent<AudioSource>();
         worldManager = FindObjectOfType<WorldManager>();
     }
     
@@ -268,9 +270,9 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
 
     public void OnReload() {
         if (escondido) return;
-        if (!isReloading && isAiming) {
+        if (!isReloading && isAiming && bullets!=12) {
             
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSourceReload.PlayOneShot(audioSourceReload.clip);
             StartCoroutine(ReloadCoroutine());
         }
     }
@@ -298,6 +300,7 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
             isRunning = false;
             isCrouched = false;
             _animator.SetBool("isCrouched", false);
+            noise.transform.DOScale(Vector3.one*2, 0.3f);
         }));
         
         stealth = fsm.CreateState("Stealth", (() => {
@@ -305,6 +308,9 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
             isRunning = false;
             isCrouched = true;
             _animator.SetBool("isCrouched", true);
+            
+            
+            noise.transform.DOScale(Vector3.one, 0.3f);
         }));
 
         running = fsm.CreateState("Running", () => {
@@ -312,6 +318,9 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
             isCrouched = false;
             _fsmUpdate = RunningUpdate;
             _animator.SetBool("isRunning", true);
+            
+            
+            noise.transform.DOScale(Vector3.one * 4, 0.3f);
         });
         
         
@@ -358,7 +367,11 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
 
 
     void MoveCharacter(float speed) {
-        if (inputVector.magnitude <= 0) return;
+        if (inputVector.magnitude <= 0) {
+            noise.gameObject.SetActive(false);
+            return;
+        }
+        noise.gameObject.SetActive(true);
         HandleRotation();
 
         Vector3 move = new Vector3(inputVector.x, 0, inputVector.z);
@@ -383,6 +396,7 @@ public class PlayerController : MonoBehaviour, IDamageable<float> {
         health--;
         healthBar.localScale = new Vector2(health / 5, 1);
 
+        audioSourceScream.PlayOneShot(audioSourceScream.clip);
         StartCoroutine(HitFeedback());
     }
 

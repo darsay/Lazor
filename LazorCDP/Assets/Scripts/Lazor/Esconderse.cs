@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Esconderse : MonoBehaviour
 {
     private GameObject playerController;
     private bool dentro;
-    private bool arriba = true;
     private bool vibracion = true;
-    private Vector3 pos;
+    private Transform pos;
     private Quaternion rot;
+
+    private Tween tween;
     // Start is called before the first frame update
     void Start()
     {
-        pos = transform.parent.position;
+        pos = transform.parent;
         rot = transform.parent.rotation;
         playerController = FindObjectOfType<PlayerController>().gameObject;
+        
+        //transform.parent.DOMoveY(pos.position.y + 0.2f, 1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        tween = transform.parent.DOScale(pos.localScale*1.1f, 1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        tween.Play();
+
     }
 
     // Update is called once per frame
@@ -24,39 +31,27 @@ public class Esconderse : MonoBehaviour
         if (dentro && playerController.GetComponent<PlayerController>().escondido)
         {
             vibrar(); 
-            transform.parent.position = pos;
+            transform.parent.position = pos.position;
             
             playerController.GetComponent<PlayerController>().enabled = false;
             playerController.transform.GetChild(0).gameObject.SetActive(false);
+            playerController.transform.GetChild(4).gameObject.SetActive(false);
+            transform.DOScale(pos.localScale, 0.1f);
+            tween.Pause();
         }
         else if (dentro) 
         {
-            MoveBox();
             playerController.GetComponent<PlayerController>().enabled = true;
             playerController.transform.GetChild(0).gameObject.SetActive(true);
+            
+            playerController.transform.GetChild(4).gameObject.SetActive(true);
+            tween.Play();
         }
-        else
-        {
-            MoveBox();
+        else {
+            tween.Play();
         }
     }
 
-    private void MoveBox()
-    {
-        transform.parent.Rotate (0, 10 * Time.deltaTime, 0);
-        if (arriba)
-        {
-            transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y + 0.001f, transform.parent.position.z);
-            if (transform.parent.position.y > pos.y + 0.7f)
-                arriba = false;
-        }
-        else
-        {
-            transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y - 0.001f, transform.parent.position.z);
-            if (transform.parent.position.y < pos.y)
-                arriba = true;
-        }
-    }
 
     private void vibrar()
     {
@@ -71,13 +66,13 @@ public class Esconderse : MonoBehaviour
         vibracion = true;
         if (dentro && playerController.GetComponent<PlayerController>().escondido)
         {
-            transform.parent.Rotate (5, 0, 5);
+            transform.parent.DORotate(new Vector3(pos.rotation.eulerAngles.x+2, pos.rotation.eulerAngles.y, pos.rotation.eulerAngles.z+2), 0.1f);
             yield return new WaitForSeconds(0.1f);
-            transform.parent.Rotate (-5, 0, -5);
+            transform.parent.DORotate(new Vector3(-pos.rotation.eulerAngles.x+2, pos.rotation.eulerAngles.y, -pos.rotation.eulerAngles.z+2), 0.1f);
             yield return new WaitForSeconds(0.1f);
-            transform.parent.Rotate (5, 0, 5);
+            transform.parent.DORotate(new Vector3(pos.rotation.eulerAngles.x+2, pos.rotation.eulerAngles.y, pos.rotation.eulerAngles.z+2), 0.1f);
             yield return new WaitForSeconds(0.1f);
-            transform.parent.Rotate (-5, 0, -5);
+            transform.parent.DORotate(new Vector3(-pos.rotation.eulerAngles.x+2, pos.rotation.eulerAngles.y, -pos.rotation.eulerAngles.z+2), 0.1f);
             yield return new WaitForSeconds(0.1f);
             transform.parent.rotation = rot;
         }
